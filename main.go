@@ -108,12 +108,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	if !((sliceChecker("-r", flags) || sliceChecker("--root", flags)) && (sliceChecker("-p", flags) || sliceChecker("--path", flags))) {
-		fmt.Println("invalid flags")
-		fmt.Println("please check the usage")
-		fmt.Println("  wdr help")
-		os.Exit(1)
-	} else if sliceChecker("-r", flags) || sliceChecker("--root", flags) {
+	if sliceChecker("-r", flags) || sliceChecker("--root", flags) {
 		for i, flag := range flags {
 			if flag == "-r" || flag == "--root" {
 				root = os.Args[i]
